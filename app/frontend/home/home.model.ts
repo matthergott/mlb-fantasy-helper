@@ -1,17 +1,39 @@
-export class PlayersList {
-    public Players: PlayersReference[];
+export class PlayerModel {
+    public players: PlayerInfo[];
 
     public constructor() {
-        this.Players = [];
+        this.players = [];
     }
 }
 
-export class PlayersReference {
-    public Id: string;
-    //public Name: string;
+export class PlayerInfo {
+    public playerID: string;
+    public name: string;
 
     public constructor() {
-        this.Id = "";
-        //this.Name = "";
+        this.playerID = "";
+        this.name = "";
     }
 }
+
+export class PlayerReference {
+    public playerID: string;
+    public nameLast: string;
+    public nameFirst: string;
+
+    public constructor() {
+        this.playerID = "";
+        this.nameLast = "";
+        this.nameFirst = "";
+    }
+}
+
+//export class PlayersReference {
+//    public Id: string;
+//    //public Name: string;
+
+//    public constructor() {
+//        this.Id = "";
+//        //this.Name = "";
+//    }
+//}

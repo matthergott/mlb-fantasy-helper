@@ -1,6 +1,20 @@
 ﻿<div>
     <!--<h1>yolo</h1>-->
-    <div *ngFor="let element of playersList">
-        <label>{{element.Id}}</label>
+    <!--<div *ngFor="let element of playersList.players">
+        <label>{{element.name}}</label>
+    </div>-->
+
+    <div class="container">
+        <div class="input-field col s12">
+            <input id="country" type="text" class="validate filter-input" [(ngModel)]=query (keyup)=filter()>
+            <label for="country">Type Player Name</label>
+        </div>
+        <div class="suggestions" *ngIf="filteredList.length > 0">
+            <ul *ngFor="let item of filteredList">
+                <li>
+                    <a (click)="select(item.name)">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
