@@ -3,11 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { HomeComponent } from './frontend/home/home.component'
-import { DisplayPlayerComponent } from './frontend/displayPlayer/display-player.component'
+import { AppComponent } from './app.component';
+import { DisplayPlayerComponent } from './frontend/displayPlayer/display-player.component';
+import { HomeComponent } from './frontend/home/home.component';
+
+import { DisplayPlayerService } from './frontend/displayPlayer/display-player.service';
+import { HomeService } from './frontend/home/home.service';
 
 @NgModule({
     imports: [
@@ -16,7 +19,10 @@ import { DisplayPlayerComponent } from './frontend/displayPlayer/display-player.
         AppRoutingModule,
         HttpModule
     ],
-    providers: [],
+    providers: [
+        DisplayPlayerService,
+        HomeService
+    ],
     declarations: [
         AppComponent,
         HomeComponent,

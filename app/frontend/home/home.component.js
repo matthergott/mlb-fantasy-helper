@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require('rxjs/add/operator/switchMap');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var constants_1 = require('../shared/constants');
@@ -69,16 +70,14 @@ var HomeComponent = (function () {
         return arr;
     };
     HomeComponent.prototype.select = function (item) {
-        this.query = item;
+        this.query = item.name;
         this.filteredList = [];
+        this.router.navigate(['/player', item.playerID]);
     };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',
             providers: [home_service_1.HomeService, constants_1.APIURL],
-            //template: `
-            //<h2>HOME</h2>
-            //<p>Home Page</p>`,
             templateUrl: 'app/frontend/home/home.html'
         }), 
         __metadata('design:paramtypes', [home_service_1.HomeService, router_1.ActivatedRoute, router_1.Router])

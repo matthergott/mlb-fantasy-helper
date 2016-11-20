@@ -16,19 +16,18 @@ var Observable_1 = require('rxjs/Observable');
 var constants_1 = require('../shared/constants');
 var DisplayPlayerService = (function () {
     function DisplayPlayerService(http, configuration) {
-        var _this = this;
         this.http = http;
         this.configuration = configuration;
-        this.GetSingle = function (id) {
-            return _this.http.get(_this.serverUrl + "players/" + id)
-                .map(function (response) { return response.json(); })
-                .catch(_this.handleError);
-        };
         this.serverUrl = configuration.ServerWithApiUrl;
         this.headers = new http_1.Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
     }
+    DisplayPlayerService.prototype.GetSingle = function (id) {
+        return this.http.get(this.serverUrl + "players/" + id)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     DisplayPlayerService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

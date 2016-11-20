@@ -10,9 +10,9 @@
             <label for="country">Type Player Name</label>
         </div>
         <div class="suggestions" *ngIf="filteredList.length > 0">
-            <ul *ngFor="let item of filteredList">
+            <ul *ngFor="let element of filteredList">
                 <li>
-                    <a (click)="select(item.name)">{{item.name}}</a>
+                    <a [routerLink]="['/player', element.playerID]">{{element.name}}</a>
                 </li>
             </ul>
         </div>

@@ -8,25 +8,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var router_1 = require('@angular/router');
 var core_1 = require('@angular/core');
 //import { CORE_DIRECTIVES } from '@angular/common';
 var constants_1 = require('../shared/constants');
 var display_player_service_1 = require('./display-player.service');
+var display_player_model_1 = require('./display-player.model');
 var DisplayPlayerComponent = (function () {
-    function DisplayPlayerComponent(displayPlayerService) {
+    function DisplayPlayerComponent(displayPlayerService, activatedRoute) {
         this.displayPlayerService = displayPlayerService;
+        this.activatedRoute = activatedRoute;
+        this.playerStats = new display_player_model_1.PlayerStats();
     }
     DisplayPlayerComponent.prototype.ngOnInit = function () {
-        //this.getReferences();
+        var _this = this;
+        // subscribe to router event
+        this.subscription = this.activatedRoute.params.subscribe(function (param) {
+            var playerId = param['Id'];
+            _this.getReferences(playerId);
+        });
     };
     //...
-    DisplayPlayerComponent.prototype.getReferences = function () {
+    DisplayPlayerComponent.prototype.getReferences = function (Id) {
         var _this = this;
         this.displayPlayerService
-            .GetSingle("chapmar01")
-            .subscribe(function (data) { return _this.playerStats = data; }, 
-        //error => console.log(error),
-        function () { return console.log('Get all Items complete'); });
+            .GetSingle(Id)
+            .subscribe(function (result) { return _this.playerStats.years = _this.populatePlayers(result.data); }, function (error) { return console.log(error); }, function () { return console.log('Get items complete'); });
+    };
+    DisplayPlayerComponent.prototype.populatePlayers = function (input) {
+        var arr = [];
+        for (var _i = 0, input_1 = input; _i < input_1.length; _i++) {
+            var element = input_1[_i];
+            arr.push(element);
+        }
+        return arr;
+    };
+    DisplayPlayerComponent.prototype.ngOnDestroy = function () {
+        // prevent memory leak by unsubscribing
+        this.subscription.unsubscribe();
     };
     DisplayPlayerComponent = __decorate([
         core_1.Component({
@@ -34,7 +53,7 @@ var DisplayPlayerComponent = (function () {
             providers: [display_player_service_1.DisplayPlayerService, constants_1.APIURL],
             template: "\n    <h2>DISPLAY PLAYER</h2>\n    <p>Display Player Page</p>"
         }), 
-        __metadata('design:paramtypes', [display_player_service_1.DisplayPlayerService])
+        __metadata('design:paramtypes', [display_player_service_1.DisplayPlayerService, router_1.ActivatedRoute])
     ], DisplayPlayerComponent);
     return DisplayPlayerComponent;
 }());
