@@ -3,7 +3,6 @@ import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import { Observable } from 'rxjs/Observable';
-import { Player } from './display-player.model';
 import { APIURL } from '../shared/constants';
 
 @Injectable()
@@ -21,9 +20,9 @@ export class DisplayPlayerService {
         this.headers.append('Accept', 'application/json');
     }
 
-    public GetSingle = (id: string): Observable<Player> => {
+    public GetSingle(id: string) {
         return this.http.get(this.serverUrl + "players/" + id)
-            .map((response: Response) => <Player>response.json())
+            .map((response: Response) => response.json())
             .catch(this.handleError);
     }
 

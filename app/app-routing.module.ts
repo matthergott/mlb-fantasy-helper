@@ -1,19 +1,17 @@
 ﻿import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './frontend/home/home.component';
 import { DisplayPlayerComponent } from './frontend/displayPlayer/display-player.component';
+import { HomeComponent } from './frontend/home/home.component';
+
+const routes: Routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'player/:id', component: DisplayPlayerComponent }
+];
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot([
-            { path: '', redirectTo: '/home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: 'display-player', component: DisplayPlayerComponent }
-        ])
-    ],
-    exports: [
-        RouterModule
-    ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

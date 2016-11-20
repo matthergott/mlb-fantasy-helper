@@ -10,23 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var home_component_1 = require('./frontend/home/home.component');
 var display_player_component_1 = require('./frontend/displayPlayer/display-player.component');
+var home_component_1 = require('./frontend/home/home.component');
+var routes = [
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'player/:id', component: display_player_component_1.DisplayPlayerComponent }
+];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [
-                router_1.RouterModule.forRoot([
-                    { path: '', redirectTo: '/home', pathMatch: 'full' },
-                    { path: 'home', component: home_component_1.HomeComponent },
-                    { path: 'display-player', component: display_player_component_1.DisplayPlayerComponent }
-                ])
-            ],
-            exports: [
-                router_1.RouterModule
-            ]
+            imports: [router_1.RouterModule.forRoot(routes)],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
     ], AppRoutingModule);

@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 //import { CORE_DIRECTIVES } from '@angular/common';
 
 import { APIURL } from '../shared/constants';
 import { DisplayPlayerService } from './display-player.service';
-import { Player } from './display-player.model';
+import { PlayerStats } from './display-player.model';
+import { YearStats } from './display-player.model';
 
 @Component({
     selector: 'display-player',
@@ -16,21 +19,46 @@ import { Player } from './display-player.model';
 })
 
 export class DisplayPlayerComponent implements OnInit {
-    public playerStats: Player;
+    public playerStats: PlayerStats;
+    private subscription: Subscription;
 
-    constructor(private displayPlayerService: DisplayPlayerService) { }
+    constructor(
+        private displayPlayerService: DisplayPlayerService,
+        private activatedRoute: ActivatedRoute) {
+        this.playerStats = new PlayerStats();
+    }
 
     ngOnInit() {
-        //this.getReferences();
+        // subscribe to router event
+        this.subscription = this.activatedRoute.params.subscribe(
+            (param: any) => {
+                let playerId = param['Id'];
+                this.getReferences(playerId);
+            });
     }
 
     //...
 
-    private getReferences(): void {
+    private getReferences(Id:string): void {
         this.displayPlayerService
-            .GetSingle("chapmar01")
-            .subscribe((data: Player) => this.playerStats = data,
-            //error => console.log(error),
-            () => console.log('Get all Items complete'));
+            .GetSingle(Id)
+            .subscribe(result => this.playerStats.years = this.populatePlayers(result.data),
+            error => console.log(error),
+            () => console.log('Get items complete'));
+    }
+
+    private populatePlayers(input: YearStats[]) {
+        var arr: YearStats[] = [];
+
+        for (let element of input) {
+            arr.push(element);
+        }
+
+        return arr;
+    }
+
+    ngOnDestroy() {
+        // prevent memory leak by unsubscribing
+        this.subscription.unsubscribe();
     }
 }

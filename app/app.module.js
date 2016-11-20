@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
-var app_component_1 = require('./app.component');
 var app_routing_module_1 = require('./app-routing.module');
-var home_component_1 = require('./frontend/home/home.component');
+var app_component_1 = require('./app.component');
 var display_player_component_1 = require('./frontend/displayPlayer/display-player.component');
+var home_component_1 = require('./frontend/home/home.component');
+var display_player_service_1 = require('./frontend/displayPlayer/display-player.service');
+var home_service_1 = require('./frontend/home/home.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,7 +29,10 @@ var AppModule = (function () {
                 app_routing_module_1.AppRoutingModule,
                 http_1.HttpModule
             ],
-            providers: [],
+            providers: [
+                display_player_service_1.DisplayPlayerService,
+                home_service_1.HomeService
+            ],
             declarations: [
                 app_component_1.AppComponent,
                 home_component_1.HomeComponent,

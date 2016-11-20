@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
 import {
     Component, OnInit, HostBinding,
     trigger, transition, animate,
@@ -15,12 +17,7 @@ import { PlayerInfo } from './home.model';
 @Component({
     selector: 'home',
     providers: [HomeService, APIURL],
-    //template: `
-    //<h2>HOME</h2>
-    //<p>Home Page</p>`,
     templateUrl: 'app/frontend/home/home.html'
-    //directives: [CORE_DIRECTIVES]
-
 })
 
 export class HomeComponent implements OnInit {
@@ -91,23 +88,10 @@ export class HomeComponent implements OnInit {
         return arr;
     }
 
-    select(item:string) {
-        this.query = item;
+    select(item: PlayerInfo) {
+        this.query = item.name;
         this.filteredList = [];
+        this.router.navigate(['/player', item.playerID]);
     }
-
-    //private getPlayerIds(arr: Object): PlayerModel {
-    //    var output: PlayerModel = new PlayerModel();
-    //    output.players = [];
-
-    //    for (let element of arr.data) {
-    //        var thing = new PlayersReference();
-    //        thing.playerID = element.Id;
-    //        thing.nameFirst = element.nameFirst;
-    //        thing.nameLast = element.nameLast;
-    //        output.players.push(thing);
-    //    }
-
-    //    return output;
-    //}
+    
 }

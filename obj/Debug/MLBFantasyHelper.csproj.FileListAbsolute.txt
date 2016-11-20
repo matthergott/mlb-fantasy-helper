@@ -16,4 +16,3 @@ C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyH
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\bin\MLBFantasyHelper.pdb
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\obj\Debug\MLBFantasyHelper.dll
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\obj\Debug\MLBFantasyHelper.pdb
-C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\obj\Debug\MLBFantasyHelper.csprojResolveAssemblyReference.cache

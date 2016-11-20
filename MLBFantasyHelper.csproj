@@ -96,6 +96,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\libs\bootstrap.css" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -138,7 +139,7 @@
     <Content Include="karma-test-shim.js" />
     <Content Include="karma.conf.js" />
     <Content Include="protractor.config.js" />
-    <Content Include="styles.css" />
+    <Content Include="app\libs\styles.css" />
     <Content Include="systemjs.config.extras.js" />
     <Content Include="systemjs.config.js" />
     <Content Include="wallaby.js" />
@@ -165,10 +166,6 @@
     <TypeScriptCompile Include="app\frontend\displayPlayer\display-player.component.ts" />
     <TypeScriptCompile Include="app\frontend\displayPlayer\display-player.model.ts" />
     <TypeScriptCompile Include="app\frontend\displayPlayer\display-player.service.ts" />
-    <TypeScriptCompile Include="app\frontend\displayPlayer\display-player.module.ts" />
-    <TypeScriptCompile Include="app\frontend\displayPlayer\display-player.routing.ts" />
-    <TypeScriptCompile Include="app\frontend\home\home.module.ts" />
-    <TypeScriptCompile Include="app\frontend\home\home.routing.ts" />
     <TypeScriptCompile Include="app\frontend\home\home.service.ts" />
     <TypeScriptCompile Include="app\frontend\home\home.model.ts" />
     <TypeScriptCompile Include="app\frontend\home\home.component.ts" />
