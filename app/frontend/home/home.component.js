@@ -45,6 +45,15 @@ var HomeComponent = (function () {
         }
         return arr;
     };
+    HomeComponent.prototype.populatePlayerTeamPosInfo = function (input, playerName) {
+        var y = new home_model_2.PlayerInfo();
+        var pos = input.length - 1;
+        y.name = playerName;
+        y.playerID = input[pos].playerID;
+        y.teamCode = input[pos].teamID;
+        y.positionCode = input[pos].POS;
+        return y;
+    };
     HomeComponent.prototype.filter = function () {
         if (this.query.length <= 3) {
             this.filteredList = [];
@@ -54,18 +63,28 @@ var HomeComponent = (function () {
         }
     };
     HomeComponent.prototype.populateFilteredList = function () {
+        var _this = this;
         var arr = [];
         var counter = 0;
-        for (var _i = 0, _a = this.playersList.players; _i < _a.length; _i++) {
-            var element = _a[_i];
-            var temp = element.name.toLowerCase();
-            if (temp.indexOf(this.query.toLowerCase()) != -1) {
-                arr.push(element);
+        var _loop_1 = function(element) {
+            str = element.name.toLowerCase();
+            if (str.indexOf(this_1.query.toLowerCase()) != -1) {
+                temp = new home_model_2.PlayerInfo();
+                this_1.homeService
+                    .GetSingle(element.playerID)
+                    .subscribe(function (result) { return arr.push(_this.populatePlayerTeamPosInfo(result.data, element.name)); }, function (error) { return console.log(error); }, function () { return console.log('Get items complete'); });
                 counter += 1;
             }
             if (counter > 12) {
-                return arr;
+                return { value: arr };
             }
+        };
+        var this_1 = this;
+        var str, temp;
+        for (var _i = 0, _a = this.playersList.players; _i < _a.length; _i++) {
+            var element = _a[_i];
+            var state_1 = _loop_1(element);
+            if (typeof state_1 === "object") return state_1.value;
         }
         return arr;
     };
@@ -78,7 +97,8 @@ var HomeComponent = (function () {
         core_1.Component({
             selector: 'home',
             providers: [home_service_1.HomeService, constants_1.APIURL],
-            templateUrl: 'app/frontend/home/home.html'
+            templateUrl: 'app/frontend/home/home.html',
+            styleUrls: ['app/libs/bootstrap.css']
         }), 
         __metadata('design:paramtypes', [home_service_1.HomeService, router_1.ActivatedRoute, router_1.Router])
     ], HomeComponent);

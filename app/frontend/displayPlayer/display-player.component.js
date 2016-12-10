@@ -24,7 +24,7 @@ var DisplayPlayerComponent = (function () {
         var _this = this;
         // subscribe to router event
         this.subscription = this.activatedRoute.params.subscribe(function (param) {
-            var playerId = param['Id'];
+            var playerId = param['id'];
             _this.getReferences(playerId);
         });
     };
@@ -51,11 +51,15 @@ var DisplayPlayerComponent = (function () {
         core_1.Component({
             selector: 'display-player',
             providers: [display_player_service_1.DisplayPlayerService, constants_1.APIURL],
-            template: "\n    <h2>DISPLAY PLAYER</h2>\n    <p>Display Player Page</p>"
+            templateUrl: 'app/frontend/displayPlayer/display-player.html'
         }), 
         __metadata('design:paramtypes', [display_player_service_1.DisplayPlayerService, router_1.ActivatedRoute])
     ], DisplayPlayerComponent);
     return DisplayPlayerComponent;
 }());
 exports.DisplayPlayerComponent = DisplayPlayerComponent;
+//template: `
+//<h2>DISPLAY PLAYER</h2>
+//<p>Display Player Page</p>`
+//directives: [CORE_DIRECTIVES] 
 //# sourceMappingURL=display-player.component.js.map

@@ -27,12 +27,11 @@ export class HomeService {
             .catch(this.handleError);
     }
 
-    //public GetAll = (): Observable<MyTypedItem[]> => {
-        
-    //    return this.http.get(this.serverUrl + "players/")
-    //        .map(res => <PlayerModel>res.json())
-    //        .catch(this.handleError);
-    //}
+    public GetSingle(id: string) {
+        return this.http.get(this.serverUrl + "players/" + id)
+            .map((response: Response) => response.json())
+            .catch(this.handleError);
+    }
 
     private handleError(error: Response) {
         console.error(error);

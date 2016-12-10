@@ -134,7 +134,93 @@ nav a.router-link-active {
   border-radius: 4px 0 0 4px;
 }
 
+.center {
+    margin: auto;
+    padding: 10px;
+}
+
 /* everywhere else */
 * { 
   font-family: Arial, Helvetica, sans-serif; 
+}
+
+
+/* added classes below! */
+.table-border {
+    border: 1px solid black;
+}
+.table-border-bold {
+    border: 2px solid black;
+}
+
+
+.input[type=text] {
+    width: 30%;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s ease-in-out;
+}
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+
+.red-border{
+    border: 3px solid red;
+}
+
+.bottom-border-black{
+    border-bottom: 1px solid black;
+}
+
+.center-children-horizontal{
+    display: flex;
+    justify-content: center;
+}
+.center-children-vertical{
+    display: flex;
+    align-items: center;
+}
+.center-children{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-a-0{
+    padding: 0.5em;
+}
+.p-a-1{
+    padding: 1em;
+}
+
+.m-l-1{
+    margin-left: 1em;
+}
+.m-l-2{
+    margin-left: 2em;
+}
+
+.m-r-1{
+    margin-right: 1em;
+}
+.m-r-2{
+    margin-right: 2em;
+}
+
+.m-b-0{
+    margin-bottom: 0.5em;
+}
+.m-b-1{
+    margin-bottom: 1em;
+}
+
+
+.width-10{
+    width: 10%;
+}
+.width-50{
+    width: 50%;
+}
+.width-90{
+    width: 90%;
 }

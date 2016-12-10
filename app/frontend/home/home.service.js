@@ -28,11 +28,11 @@ var HomeService = (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    //public GetAll = (): Observable<MyTypedItem[]> => {
-    //    return this.http.get(this.serverUrl + "players/")
-    //        .map(res => <PlayerModel>res.json())
-    //        .catch(this.handleError);
-    //}
+    HomeService.prototype.GetSingle = function (id) {
+        return this.http.get(this.serverUrl + "players/" + id)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     HomeService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');

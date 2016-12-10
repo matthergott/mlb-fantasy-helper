@@ -11,11 +11,7 @@ import { YearStats } from './display-player.model';
 @Component({
     selector: 'display-player',
     providers: [DisplayPlayerService, APIURL],
-    template: `
-    <h2>DISPLAY PLAYER</h2>
-    <p>Display Player Page</p>`
-    //templateUrl: 'display-player.html'
-    //directives: [CORE_DIRECTIVES]
+    templateUrl: 'app/frontend/displayPlayer/display-player.html'
 })
 
 export class DisplayPlayerComponent implements OnInit {
@@ -32,9 +28,11 @@ export class DisplayPlayerComponent implements OnInit {
         // subscribe to router event
         this.subscription = this.activatedRoute.params.subscribe(
             (param: any) => {
-                let playerId = param['Id'];
+                let playerId = param['id'];
                 this.getReferences(playerId);
             });
+
+
     }
 
     //...
@@ -62,3 +60,10 @@ export class DisplayPlayerComponent implements OnInit {
         this.subscription.unsubscribe();
     }
 }
+
+
+
+    //template: `
+    //<h2>DISPLAY PLAYER</h2>
+    //<p>Display Player Page</p>`
+    //directives: [CORE_DIRECTIVES]
