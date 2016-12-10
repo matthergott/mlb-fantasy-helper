@@ -9,17 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var APIURL = (function () {
+    function APIURL() {
+        this.Server = "http://54.244.30.252:5000/";
+        this.ApiUrl = "api/";
+        this.Version = "v1.0/";
+        this.ServerWithApiUrl = this.Server + this.ApiUrl + this.Version;
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.html'
-        }), 
+    APIURL = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], APIURL);
+    return APIURL;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.APIURL = APIURL;
+//# sourceMappingURL=constants.js.map

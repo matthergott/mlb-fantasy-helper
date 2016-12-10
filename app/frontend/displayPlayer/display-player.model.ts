@@ -9,34 +9,34 @@ export class PlayerStats {
 export class YearStats {
     public playerID: string;
     public doubles: string; //2B
-    public BB: string;
-    public HR: string;
+    public BB: string; //walks
+    public HR: string; //home runs
     public IBB: string;
     public WP: string;
     public triples: string; //3B
-    public HBP: string;
+    public HBP: string; //hit by a pitch
     public DP: string;
-    public GIDP: string;
-    public POS: string;
+    public GIDP: string; //ground into double play
+    public POS: string; //position
     public stint: string;
     public PB: string;
-    public teamID: string;
+    public teamID: string; //team
     public PO: string;
     public A: string;
-    public AB: string;
+    public AB: string //at bats
     public E: string;
-    public G: string;
-    public H: string;
-    public yearId: string;
-    public R: string;
-    public RBI: string;
+    public G: string; //games played?
+    public H: string; //hits?
+    public yearID: string;
+    public R: string; //runs
+    public RBI: string; //rbis
     public CS: string;
     public ZR: string;
     public lgID: string;
     public InnOuts: string;
     public SH: string;
-    public SO: string;
-    public SB: string;
+    public SO: string; //strike outs
+    public SB: string; //stolen bases
     public SF: string;
 
     public constructor() {
@@ -60,7 +60,7 @@ export class YearStats {
         this.E = "";
         this.G = "";
         this.H = "";
-        this.yearId = "";
+        this.yearID = "";
         this.R = "";
         this.RBI = "";
         this.CS = "";

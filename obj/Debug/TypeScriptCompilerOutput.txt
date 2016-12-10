@@ -1,7 +1,7 @@
-C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\app.component.spec.js
-C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\app.component.spec.js.map
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\app.component.js
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\app.component.js.map
+C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\app.component.spec.js
+C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\app.component.spec.js.map
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\frontend\shared\constants.js
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\frontend\shared\constants.js.map
 C:\Users\Matt\Documents\Visual Studio 2015\Projects\MLBFantasyHelper\MLBFantasyHelper\app\frontend\displayPlayer\display-player.service.js
