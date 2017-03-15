@@ -31,24 +31,4 @@ import { HomeService } from './frontend/home/home.service';
     bootstrap: [AppComponent]
 })
 export class AppModule {
-=======
-@NgModule({
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        HttpModule
-    ],
-    providers: [
-        DisplayPlayerService,
-        HomeService
-    ],
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        DisplayPlayerComponent
-    ],
-    bootstrap: [AppComponent]
-})
-export class AppModule {
 }
