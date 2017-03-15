@@ -12,7 +12,6 @@ import { HomeComponent } from './frontend/home/home.component';
 import { DisplayPlayerService } from './frontend/displayPlayer/display-player.service';
 import { HomeService } from './frontend/home/home.service';
 
-<<<<<<< HEAD:MLBFantasyHelper/app/app.module.ts
 @NgModule({
     imports: [
         BrowserModule,
@@ -52,5 +51,4 @@ export class AppModule {
     bootstrap: [AppComponent]
 })
 export class AppModule {
->>>>>>> origin/master:app/app.module.ts
 }
